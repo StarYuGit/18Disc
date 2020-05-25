@@ -93,42 +93,56 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1" />
-                            <ImageView
-                                android:id="@+id/disc1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:scaleType="centerInside"
-                                android:maxHeight="10dip"
-                                android:maxWidth="10dip"
-                                android:src="@drawable/disc1"
-                                android:layout_centerVertical="true"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:gravity="center"
                             android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc1_1"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc1_2"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc1_3"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc1_4"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -152,7 +166,67 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc2_1"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc2_2"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc2_3"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/disc2_4"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/disc6"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
