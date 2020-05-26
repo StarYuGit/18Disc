@@ -7,7 +7,8 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="NestedWeights">
     <!--1-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
                 <!--1-1-1-1-->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -37,6 +39,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="你" />
                     <TextView
+                        android:id="@+id/player1_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -67,6 +70,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="對手" />
                     <TextView
+                        android:id="@+id/player2_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -247,6 +251,7 @@
                 android:gravity="center"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/player1_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="擲骰結果"
@@ -264,6 +269,7 @@
                 android:gravity="center"
                 android:layout_weight="1">
                 <TextView
+                    android:id="@+id/player2_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="擲骰結果"
@@ -277,6 +283,7 @@
             android:gravity="center"
             android:layout_weight="1">
             <TextView
+                android:id="@+id/message_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="提示訊息"
@@ -297,6 +304,7 @@
             android:gravity="center"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/plus_1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -308,6 +316,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
                 <Button
+                    android:id="@+id/plus_10"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -315,6 +324,7 @@
                     android:textSize="20dp"
                     android:text="+10"/>
                 <Button
+                    android:id="@+id/plus_100"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -323,6 +333,7 @@
                     android:text="+100"/>
             </LinearLayout>
             <Button
+                android:id="@+id/plus_1000"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -338,6 +349,7 @@
             android:layout_weight="1"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/multi_2"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -359,13 +371,14 @@
                     android:layout_gravity="center_horizontal"
                     android:text="投注金額" />
                 <TextView
+                    android:id="@+id/total_bet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView1"
                     android:layout_gravity="center_horizontal"
                     android:text="100000" />
             </LinearLayout>
             <Button
+                android:id="@+id/division_2"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -381,6 +394,7 @@
             android:gravity="center"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/bet_min"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_margin="10dp"
@@ -388,6 +402,7 @@
                 android:textSize="20dp"
                 android:text="最小"/>
             <Button
+                android:id="@+id/bet_start"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -396,6 +411,7 @@
                 android:layout_weight="2"
                 android:text="開始" />
             <Button
+                android:id="@+id/bet_max"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
