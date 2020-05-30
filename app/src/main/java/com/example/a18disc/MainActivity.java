@@ -2,6 +2,9 @@ package com.example.a18disc;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Random;
 
 import android.app.Activity;
 import android.app.Application;
@@ -26,9 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int p1_total_money = 1000000,
         p2_total_money = 1000000,
         bet_counter = 0,
-        bet = 0;
+        bet = 0,
+        t_out = 10;
 
-    String operator;
+    String operator,
+            temp = "",
+           press_down="off";
+
+    Timer timer = new Timer();
+    Random ran = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +81,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bet_min.setOnClickListener(this);
         bet_max.setOnClickListener(this);
         bet_start.setOnClickListener(this);
+    }
+
+    public void play_disc(){
+        final TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    int[] disc4 = new int[4];
+                    @Override
+                    public void run() {
+                        t_out--;
+                        for (int i=0; i<4;i++){
+                            disc4[i] = ran.nextInt(6)+1;
+                        }
+                        for (int i=0; i <4;i++){
+                            temp = temp + String.valueOf(disc4[i]);
+                        }
+                        player1_result.setText(temp);
+                        if (t_out == 0){
+                            player1_result.setText("");
+                            timer.cancel();
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(task, 100, 100);
     }
     public int Betting(String op,int p_money,int b_counter,int b){
         if (op == "plus"){
@@ -130,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 total_bet.setText(String.valueOf(Betting(operator, p1_total_money, bet_counter, bet)));
                 break;
             case R.id.bet_start:
+                play_disc();
                 break;
         }
     }
