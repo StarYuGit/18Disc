@@ -2,6 +2,9 @@ package com.example.a18disc;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Random;
@@ -33,15 +36,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         t_out = 10;
 
     String operator,
-            temp = "",
-           press_down="off";
+            temp = "";
 
     Timer timer = new Timer();
     Random ran = new Random();
+    public class player {
+        int money = 1;
+        void play_disc(){
+            final TimerTask task = new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        int[] disc4 = new int[4];
+                        @Override
+                        public void run() {
+                            t_out--;
+                            for (int i=0; i<4;i++){
+                                disc4[i] = ran.nextInt(6)+1;
+                            }
+                            for (int i=0; i <4;i++){
+                                temp = temp + String.valueOf(disc4[i]);
+                            }
+                            player1_result.setText(temp);
+                            if (t_out == 0){
+                                player1_result.setText("");
+                                timer.cancel();
+                            }
+                        }
+                    });
+                }
+            };
+            timer.schedule(task, 100, 100);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         player1_money = (TextView) findViewById(R.id.player1_money);
         player2_money = (TextView) findViewById(R.id.player2_money);
         player1_result = (TextView) findViewById(R.id.player1_result);
@@ -67,8 +99,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         disc2_4 = (ImageView) findViewById(R.id.disc2_4);
 
         total_bet.setText(String.valueOf(bet_counter));
-        player1_money.setText(String.valueOf(p1_total_money));
-        player2_money.setText(String.valueOf(p2_total_money));
+        player player1 = new player();
+        player player2 = new player();
+        player1_money.setText(String.valueOf(player1.money));
+        player2_money.setText(String.valueOf(player2.money));
         player1_result.setText("");
         player2_result.setText("");
 
@@ -83,32 +117,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bet_start.setOnClickListener(this);
     }
 
-    public void play_disc(){
-        final TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    int[] disc4 = new int[4];
-                    @Override
-                    public void run() {
-                        t_out--;
-                        for (int i=0; i<4;i++){
-                            disc4[i] = ran.nextInt(6)+1;
-                        }
-                        for (int i=0; i <4;i++){
-                            temp = temp + String.valueOf(disc4[i]);
-                        }
-                        player1_result.setText(temp);
-                        if (t_out == 0){
-                            player1_result.setText("");
-                            timer.cancel();
-                        }
-                    }
-                });
-            }
-        };
-        timer.schedule(task, 100, 100);
+    public int chk_disc(int[] disc_result) {
+        int result = -1;
+        Arrays.sort(disc_result);
+        if (disc_result[0] == disc_result[1] && disc_result[1] == disc_result[2] && disc_result[2] == disc_result[3]) {
+            result = 100;
+        } else if (disc_result[0] == disc_result[1] && disc_result[1] == disc_result[2] || disc_result[1] == disc_result[2] && disc_result[2] == disc_result[3]){
+            result = 0;
+        } else if (disc_result[0] != disc_result[1] && disc_result[0] != disc_result[2] && disc_result[0] != disc_result[3]) {
+            result = 0;
+        } else if (disc_result[0] == disc_result[1] && disc_result[2] == disc_result[3]) {
+            result = 90;
+        } else if (disc_result[0] == disc_result[1]){
+            result = disc_result[3] + disc_result[4];
+        } else if (disc_result[1] == disc_result[2]){
+            result = disc_result[0] + disc_result[3];
+        } else if (disc_result[2] == disc_result[3]){
+            result = disc_result[0] + disc_result[1];
+        }
+        return result;
     }
+
+    public void result_message(int result) {
+        if (result == 100) {
+            message_text.setText("十八啦!!");
+        } else if (result == 90) {
+            message_text.setText("十八啦!!");
+        } else if (result == 0) {
+            message_text.setText("無點數!重骰一次");
+        }
+    }
+
     public int Betting(String op,int p_money,int b_counter,int b){
         if (op == "plus"){
             b_counter = b_counter + b;
@@ -126,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bet_counter = b_counter;
         return bet_counter;
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -166,7 +206,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 total_bet.setText(String.valueOf(Betting(operator, p1_total_money, bet_counter, bet)));
                 break;
             case R.id.bet_start:
-                play_disc();
                 break;
         }
     }
