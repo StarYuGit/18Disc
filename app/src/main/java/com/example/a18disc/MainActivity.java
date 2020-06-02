@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               disc2_1,disc2_2,disc2_3,disc2_4;
 
     int p1_total_money = 1000000,
-        p2_total_money = 1000000,
         bet_counter = 0,
         bet = 0,
         t_out = 10;
