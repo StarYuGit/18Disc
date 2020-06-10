@@ -48,15 +48,14 @@
                 <!--1-1-1-2-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1">
                     <TextView
                         android:id="@+id/win_or_lose"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:textSize="40dp"
+                        android:textSize="20dp"
                         android:text="勝負" />
                 </LinearLayout>
                 <!--1-1-1-3-->
@@ -288,7 +287,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="提示訊息"
-                android:textSize="60dp"/>
+                android:textSize="50dp"/>
         </LinearLayout>
     </LinearLayout>
     <!--3-->
@@ -308,9 +307,9 @@
                 android:id="@+id/plus_1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:text="+1" />
             <LinearLayout
                 android:layout_weight="2"
@@ -321,16 +320,16 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:textSize="20dp"
+                    android:layout_margin="5dp"
+                    android:textSize="15dp"
                     android:text="+10"/>
                 <Button
                     android:id="@+id/plus_100"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:textSize="20dp"
+                    android:layout_margin="5dp"
+                    android:textSize="15dp"
                     android:text="+100"/>
             </LinearLayout>
             <Button
@@ -338,8 +337,8 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:textSize="20dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
                 android:text="+1000"/>
         </LinearLayout>
         <!--3-2-->
@@ -354,14 +353,14 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:textSize="20dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
                 android:text="乘2"/>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="2"
                 android:layout_gravity="center"
                 android:orientation="vertical">
@@ -383,8 +382,8 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:textSize="20dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
                 android:text="除2"/>
         </LinearLayout>
         <!--3-3-->
@@ -398,7 +397,7 @@
                 android:id="@+id/bet_min"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
                 android:text="最小"/>
@@ -407,10 +406,9 @@
                 android:id="@+id/bet_start"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="2"
-                android:onClick="start_btn"
                 android:text="開始"
                 android:textSize="20dp" />
             <Button
@@ -418,7 +416,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:textSize="20dp"
                 android:text="最大"/>
         </LinearLayout>
