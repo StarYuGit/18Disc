@@ -106,8 +106,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc1_1"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                         <LinearLayout
@@ -117,8 +117,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc1_2"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -133,8 +133,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc1_3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                         <LinearLayout
@@ -144,8 +144,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc1_4"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -187,8 +187,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc2_1"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                         <LinearLayout
@@ -198,8 +198,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc2_2"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -214,8 +214,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc2_3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                         <LinearLayout
@@ -225,8 +225,8 @@
                             android:layout_weight="1">
                             <ImageView
                                 android:id="@+id/disc2_4"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:src="@drawable/disc6"/>
                         </LinearLayout>
                     </LinearLayout>

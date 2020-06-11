@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     player2_result.setText("");
                     if (gambler.equals("player1")) {
                         bet_start.setEnabled(false);
-                        btn_enable();
+                        btn_enabled(false);
                         worker.post(p1);
                     }
                 }
@@ -282,8 +282,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             message_text.setText("你贏了");
             player1.set_money(player1.get_money() + bet_counter);
             player2.set_money(player2.get_money() - bet_counter);
-            player1_money.setText(String.valueOf(player1.get_money()));
-            player2_money.setText(String.valueOf(player2.get_money()));
             bet_counter = 0;
             total_bet.setText(String.valueOf(bet_counter));
             win_or_lose.setText("換你下注");
@@ -306,24 +304,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         player1.init_score();
         player2.init_score();
-        btn_disable();
+        btn_enabled(true);
         if (player1.get_money() < 1){
             player1.set_money(0);
-            player1_money.setText(String.valueOf(player1.get_money()));
-            player2_money.setText(String.valueOf(player2.get_money()));
             player1_money.setTextColor(Color.RED);
             win_or_lose.setText("");
             DIALOG_ID = 1;
             showDialog(DIALOG_ID);
         } else if (player2.get_money() < 1) {
             player2.set_money(0);
-            player1_money.setText(String.valueOf(player1.get_money()));
-            player2_money.setText(String.valueOf(player2.get_money()));
             player2_money.setTextColor(Color.RED);
             win_or_lose.setText("");
             DIALOG_ID = 2;
             showDialog(DIALOG_ID);
         }
+        player1_money.setText(String.valueOf(player1.get_money()));
+        player2_money.setText(String.valueOf(player2.get_money()));
     }
 
     private Runnable p1 = new Runnable() {
@@ -383,8 +379,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onClick(DialogInterface dialog, int which)
                         {
-                            reset();
                             dialog.dismiss();
+                            reset();
                         }
                     });
             dialog = builder.create();
@@ -395,14 +391,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 2:
                 builder = new AlertDialog.Builder(this);
                 builder.setTitle("訊息") //設定標題文字
-                        // .setMessage("對方破產了\n你贏了!!!") //設定內容文字
+                        .setMessage("對手破產了\n你贏了!!!") //設定內容文字
                         .setNegativeButton("重新開始", new DialogInterface.OnClickListener()
                         { //設定確定按鈕
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                reset();
                                 dialog.dismiss();
+                                reset();
                             }
                         });
                 dialog = builder.create();
@@ -478,31 +474,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void btn_enable(){
-        plus_1.setEnabled(false);
-        plus_10.setEnabled(false);
-        plus_100.setEnabled(false);
-        plus_1000.setEnabled(false);
-        multi_2.setEnabled(false);
-        division_2.setEnabled(false);
-        bet_min.setEnabled(false);
-        bet_max.setEnabled(false);
-    }
-
-    public void btn_disable(){
-        plus_1.setEnabled(true);
-        plus_10.setEnabled(true);
-        plus_100.setEnabled(true);
-        plus_1000.setEnabled(true);
-        multi_2.setEnabled(true);
-        division_2.setEnabled(true);
-        bet_min.setEnabled(true);
-        bet_max.setEnabled(true);
+    public void btn_enabled(boolean t_or_f){
+        plus_1.setEnabled(t_or_f);
+        plus_10.setEnabled(t_or_f);
+        plus_100.setEnabled(t_or_f);
+        plus_1000.setEnabled(t_or_f);
+        multi_2.setEnabled(t_or_f);
+        division_2.setEnabled(t_or_f);
+        bet_min.setEnabled(t_or_f);
+        bet_max.setEnabled(t_or_f);
     }
 
     public void reset(){
-        message_text.setText("");
+        delaysometime(2,message_text,"重新設定中...");
         init();
+        message_text.setText("");
     }
      public void change_image(ImageView View, int i){
         switch(i){
@@ -526,17 +512,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
      }
-     public void delaysometime(int t){
-         try{
+     public void delaysometime extends MainActivity(int t, TextView View, String messaage){
+             try{
              runOnUiThread(new Runnable() {    //可以臨時交給UI做顯示
                  public void run(){
                  }
              });
+
              for(int i=0;i<t;i++){
                  Thread.sleep(1000);
+                 worker.post(delay_msg((View, messaage));
              }
          } catch(Exception e){
              e.printStackTrace();
          }
      }
+     private void delay_msg(final TextView View, final String msg){
+         Runnable delay = new Runnable() {
+             @Override
+             public void run() {
+                 View.setText(msg);
+             }
+         };
+    }
 }
+
